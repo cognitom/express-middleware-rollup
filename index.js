@@ -1,5 +1,6 @@
 'use strict';
 
+const co = require('co');
 const assert = require('./lib/assert');
 const ExpressRollup = require('./lib/express-rollup');
 
@@ -34,6 +35,6 @@ module.exports = function createExpressRollup(options) {
   opts.dest = opts.dest || opts.src;
 
   const expressRollup = new ExpressRollup(opts);
-  const middleware = (...args) => expressRollup.handle(...args);
+  const middleware = (...args) => co(expressRollup.handle(...args));
   return middleware;
 };
