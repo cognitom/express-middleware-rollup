@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "example:basic": "node examples/basic/server.js",
-    "lint": "$(npm bin)/eslint index.js || true"
+    "lint": "$(npm bin)/eslint index.js lib/*.js || true"
   },
   "repository": {
     "type": "git",

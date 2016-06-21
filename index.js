@@ -5,20 +5,8 @@ const fsp     = require('fs-promise');
 const url     = require('url');
 const dirname = require('path').dirname;
 const join    = require('path').join;
-
-function log(key, val) {
-  if (!val) {
-    console.error('  \x1B[0m\x1B[36m%s\x1B[0m', key);
-  } else {
-    console.error('  \x1B[90m%s:\x1B[0m \x1B[36m%s\x1B[0m', key, val);
-  }
-}
-
-function assert(condition, message) {
-  if (!condition) {
-    throw new Error(`\x07\x1B[31m${message}\x1B[91m`);
-  }
-}
+const log     = require('./lib/log');
+const assert  = require('./lib/assert');
 
 const defaults = {
   bundleExtension: '.bundle',
